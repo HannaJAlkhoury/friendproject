@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 import pandas as pd
 st.set_page_config(page_title="Area 51 فقيسة ", layout= "wide")
 st.markdown("<h5 style='text-align: left; color: rgb(0 151 240 / 38%);'>This Website is Made by the man the myth the legend Hanna John Alkhoury</h5>" , unsafe_allow_html=True)
-scitable=load_workbook('c:/fax/table.xlsx')
+scitable=load_workbook('table.xlsx')
 activescitable=scitable.active
 counter=1
 Flist=[]
@@ -63,7 +63,7 @@ if code=='Noteverymanis0:)':
                 afterlist.append(sigma)  
             for bad in fqs:
                 afterlist.append(bad)
-            pd.DataFrame(afterlist).to_excel('c:/fax/table.xlsx', header=False, index=False) 
+            pd.DataFrame(afterlist).to_excel('table.xlsx', header=False, index=False) 
 elif code=="Obaiisurdaddy5":
     st.markdown("<h5 style='text-align: right; color: #00B0F0;'>Wrong Password+ you got trolled</h5>" , unsafe_allow_html=True)
 else:
