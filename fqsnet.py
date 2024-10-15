@@ -2,7 +2,6 @@ import streamlit as st
 from openpyxl import load_workbook
 import pandas as pd
 st.set_page_config(page_title="Area 51 فقيسة ", layout= "wide")
-st.markdown("<h5 style='text-align: left; color: rgb(0 151 240 / 38%);'>This Website is Made by the man the myth the legend Hanna John Alkhoury</h5>" , unsafe_allow_html=True)
 scitable=load_workbook('table.xlsx')
 activescitable=scitable.active
 counter=1
@@ -27,6 +26,7 @@ def bubbleSort(arr):
         if not swapped:
             return
 bubbleSort(Flist)
+st.write("###")
 st.markdown("<h1 style='text-align: right; color: #00B0F0;'>  ترتيب الفقيسين من الأفقس إلى الأقل فقساً </h1>" , unsafe_allow_html=True)
 st.write("###")
 counter=1
@@ -39,18 +39,22 @@ with st.form(key="1"):
 if code=='Iw8inline0:)':
     with st.form(key="2"):
         beeb=st.multiselect("الروحة",options=["حنا","أوبي","سيف","أيهم","مجد","فواز","زين","بشار","طارق","أحمد","أديب","قصي","فؤاد","يامن"])
+        bob=st.multiselect("ظرف قاهر",options=["حنا","أوبي","سيف","أيهم","مجد","فواز","زين","بشار","طارق","أحمد","أديب","قصي","فؤاد","يامن"])
         button=st.form_submit_button("UPDATE THE LIST", type='primary')
         if button==True:
             came=[]
             fqs=[]
+            bobs=[]
             for goo in Flist:
                 state=False
                 for go in beeb:
                     if go == goo[0]:
                         came.append(goo)
                         state=True
-                if state==False:
+                if state==False and goo[0] not in bob:
                     fqs.append(goo)
+                elif state==False and goo[0] in bob:
+                    bobs.append(goo)
             afterlist=[]
             for sigma in came:
                 for beta in fqs:
@@ -63,8 +67,12 @@ if code=='Iw8inline0:)':
                 afterlist.append(sigma)  
             for bad in fqs:
                 afterlist.append(bad)
+            for meh in bobs:
+                afterlist.append(meh)
             pd.DataFrame(afterlist).to_excel('table.xlsx', header=False, index=False) 
 elif code=="Obaiisurdaddy5":
     st.markdown("<h5 style='text-align: right; color: #00B0F0;'>Wrong Password+ you got trolled</h5>" , unsafe_allow_html=True)
-else:
-   st.markdown("<h5 style='text-align: left; color: #00B0F0;'>Wrong Password </h5>" , unsafe_allow_html=True) 
+elif code!="":
+   st.markdown("<h5 style='text-align: left; color: #00B0F0;'>Wrong Password </h5>" , unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: left; color: rgb(0 151 240 / 60%);'>This Website is Made by the man the myth the legend Hanna John Alkhoury</h5>" , unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: left; color: rgb(240 10 10 / 65%);'>Version 2.0</h5>" , unsafe_allow_html=True)
